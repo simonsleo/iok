@@ -10,6 +10,8 @@ const pinata = pinataSDK(process.env.PINATA_API_KEY, process.env.PINATA_SECRET_K
  *                     More info: https://expressjs.com/en/api.html#res
  */
 exports.storeGraph = (req, res) => {
+    res.set('Access-Control-Allow-Origin', '*');
+
     if (!('elements' in req.body)) {
         res.send("ERROR: Invalid graph");
     }
